@@ -1,0 +1,44 @@
+class Movie:
+    def __init__(self, title, director, genre, release_year):
+        self.title = title
+        self.director = director
+        self.genre = genre
+        self.release_year = release_year
+
+    def display_movie(self):
+        print(f"Title: {self.title}")
+        print(f"Director: {self.director}")
+        print(f"Genre: {self.genre}")
+        print(f"Release Year: {self.release_year}")
+        print()
+
+class MovieLibrary:
+    def __init__(self, name):
+        self.name = name
+        self.movies = []
+
+    def add_movie(self, movie):
+        self.movies.append(movie)
+
+    def display_movies(self):
+        if not self.movies:
+            print("No movies in the library.")
+        else:
+            print(f"Library: {self.name}")
+            print("Movies:")
+            for movie in self.movies:
+                movie.display_movie()
+
+if __name__ == '__main__':
+    library = MovieLibrary("My Movie Library")
+
+    movie1 = Movie("The Shawshank Redemption", "Frank Darabont", "Drama", 1994)
+    library.add_movie(movie1)
+
+    movie2 = Movie("The Godfather", "Francis Ford Coppola", "Crime", 1972)
+    library.add_movie(movie2)
+
+    movie3 = Movie("Pulp Fiction", "Quentin Tarantino", "Crime", 1994)
+    library.add_movie(movie3)
+
+    library.display_movies()
